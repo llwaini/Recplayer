@@ -1,0 +1,47 @@
+python 
+import serial
+import time
+def readline(self):
+    packet = ''
+    state = False
+    try:
+        packet = self.serial.readline()
+        packet = packet.decode()
+        state = True
+    except Exception as e:
+        # self.is_connected = False
+        # notebook.error('Serial reading error', exc_info=True)
+        pass
+
+    return packet, state
+
+
+ser = serial.Serial()
+ser.baudrate = 9600
+ser.port = 'com7'
+ser.open()
+values = bytearray([4, 9, 62, 144, 56, 30, 147, 3, 210, 89, 111, 78, 184, 151, 17, 129])
+
+ser.write(values)
+total = 0
+
+while total < len(values):
+    s1 = chr(ord(ser.read()))
+    print(s1)
+    
+  arduino
+  void setup(){
+  
+  Serial.begin(9600);
+  
+  Serial.println ("Read");
+  
+  
+  }
+void loop()
+{
+  
+  Serial.print("Ready\r\n");
+    delay(1000);
+//   Serial.print("stop\r\n"); ///////////////////////
+  }
