@@ -1,0 +1,17 @@
+import pygame
+import time
+import os
+import tkinter
+import tkinter.filedialog#文件的加载
+import threading
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+
+
+file = r'C:\Users\LLWAINI\PycharmProjects\CureParticle\untitled3\play_11.wav'#指定播放
+pygame.mixer.init()
+print('正在播放',file)
+track = pygame.mixer.music.load(file)
+pygame.mixer.music.play()
+time.sleep(500)
+pygame.mixer.music.stop()
